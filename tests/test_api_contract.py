@@ -15,6 +15,13 @@ async def test_root_endpoint_returns_success_json(client):
     assert payload, "GET / deve retornar um JSON com informacoes da API."
 
 
+async def test_health_endpoint_returns_ok(client):
+    response = await client.get("/health")
+
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
+
 async def test_openapi_schema_is_available(client):
     response = await client.get("/openapi.json")
 
@@ -24,3 +31,4 @@ async def test_openapi_schema_is_available(client):
     assert schema["openapi"].startswith("3.")
     assert schema["info"]["title"]
     assert "/" in schema["paths"]
+    assert "/health" in schema["paths"]

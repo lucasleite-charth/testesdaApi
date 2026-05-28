@@ -6,7 +6,7 @@ API simples criada com FastAPI e coberta por testes automatizados com pytest.
 
 ## Estrutura
 
-- `app/main.py`: define a aplicacao FastAPI e o endpoint inicial `GET /`.
+- `app/main.py`: define a aplicacao FastAPI e os endpoints `GET /` e `GET /health`.
 - `tests/conftest.py`: cria fixtures de teste para importar a API e montar um cliente HTTP.
 - `tests/test_api_contract.py`: valida o contrato basico da API.
 - `.github/workflows/tests.yml`: executa os testes automaticamente no GitHub Actions.
@@ -29,6 +29,7 @@ Na raiz do projeto:
 Depois acesse:
 
 - http://127.0.0.1:8000
+- http://127.0.0.1:8000/health
 - http://127.0.0.1:8000/docs
 
 ## Rodar os testes
@@ -40,7 +41,7 @@ Depois acesse:
 Resultado esperado:
 
 ```text
-2 passed
+3 passed
 ```
 
 ## GitHub Actions
